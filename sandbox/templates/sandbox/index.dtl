@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+{% load leaflet_tags %}
+{% load static %}
+<html>
+  <head>
+    {% leaflet_js %}
+    {% leaflet_css %}
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+    <style>
+        .leaflet-container { height: 100%; }
+        body { padding: 0; margin: 0; }
+    </style>
+    <link rel="stylesheet" href="{% static 'sandbox/leaflet.zoomdisplay.css' %}"/>
+    <script src="{% static 'sandbox/some_data.geojson' %}" type="text/javascript"></script>
+  </head>
+  <body>
+    {% leaflet_map "main" callback="main_map_init" %}
+    <script type="text/javascript" src="{% static 'sandbox/leaflet_map.js' %}"></script>
+    <script type="text/javascript" src="{% static 'sandbox/leaflet.zoomdisplay-src.js' %}"></script>
+  </body>
+</html>
